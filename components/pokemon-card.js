@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 
-import { Card, CardContent, CardFooter, CardTitle } from "./ui";
+import { Button, Card, CardContent, CardFooter, CardTitle } from "./ui";
 import Link from "next/link";
 
 const PokemonCard = (props) => {
@@ -19,15 +19,17 @@ const PokemonCard = (props) => {
   }, []);
 
   return (
-    <Link href={`/detail/${detail?.id}`}>
-      <Card className="p-2">
-        <CardTitle className="capitalize">{name}</CardTitle>
-        <CardContent>
-          <img src={detail?.sprites?.front_default} alt={name} className="w-full h-[100px] object-contain" />
-        </CardContent>
-        <CardFooter></CardFooter>
-      </Card>
-    </Link>
+    <Card>
+      <CardTitle className="capitalize p-2 text-center">{name}</CardTitle>
+      <CardContent className="p-2">
+        <img src={detail?.sprites?.front_default} alt={name} className="w-full h-[100px] object-contain" />
+      </CardContent>
+      <CardFooter>
+        <Link href={`/detail/${detail?.id}`} className="w-full">
+          <Button className="w-full">Detail</Button>
+        </Link>
+      </CardFooter>
+    </Card>
   );
 };
 
