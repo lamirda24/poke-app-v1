@@ -18,7 +18,6 @@ export default function Page() {
   };
   useEffect(() => {
     getPokemon();
-    fethTypeList();
   }, []);
 
   const getPokemon = async () => {
@@ -35,11 +34,6 @@ export default function Page() {
     setData((list) => [...list, ...results]);
   };
 
-  const fethTypeList = async () => {
-    const res = await fetchType({ limit: 10, offset: 0 });
-    const { results } = res?.data;
-    setOptions(results);
-  };
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row justify-between">
