@@ -4,7 +4,6 @@ import { fetchPokemonDetail } from "@/api";
 import { useEffect, useState } from "react";
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from "chart.js";
 import { Radar } from "react-chartjs-2";
-
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 export default function Page(props) {
   const [data, setData] = useState("");
@@ -24,7 +23,6 @@ export default function Page(props) {
     const {
       params: { slug },
     } = props;
-
     fetchDetail(slug);
   }, []);
 
